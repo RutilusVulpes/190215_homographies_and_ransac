@@ -17,7 +17,7 @@ def get_best_matches(des_I1, des_I2):
                 best_sse = sse
 
                 best_descriptor = des_I2[y]
-        best_matches.append(np.array([x,best_descriptor, best_sse]))
+        best_matches.append([x,best_descriptor, best_sse])
         best_sse = np.inf
     return(best_matches)
 
@@ -32,8 +32,8 @@ def get_secondbest_matches(des_I1, des_I2, best_matches):
             if(sse < best_sse and sse != best_matches[x][2]):
                 best_sse = sse
                 best_descriptor = des_I2[y]
-        secondbest_matches.append(np.array([x,best_descriptor, best_sse]))
-        best_sse = np.inf
+        secondbest_matches.append([x,best_descriptor, best_sse])
+        best_see = np.inf
     return secondbest_matches
 
 def filter_matches(best_matches, secondbest_matches, r=.5):
